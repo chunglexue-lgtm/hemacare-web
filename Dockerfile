@@ -1,6 +1,8 @@
 FROM php:8.3-apache
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/web
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/web \
+    YII_DEBUG=false \
+    YII_ENV=prod
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libicu-dev libzip-dev libonig-dev \
