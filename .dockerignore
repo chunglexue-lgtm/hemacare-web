@@ -1,0 +1,13 @@
+vendor/
+runtime/
+tests/
+vagrant/
+.git/
+.gitignore
+.idea/
+.vscode/
+*.log
+Dockerfile
+.dockerignore
+docker-compose.yml
+Vagrantfile
