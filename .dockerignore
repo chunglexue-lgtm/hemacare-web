@@ -11,4 +11,3 @@ Dockerfile
 .dockerignore
 docker-compose.yml
 Vagrantfile
-.env

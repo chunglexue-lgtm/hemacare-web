@@ -40,6 +40,3 @@ tests/_support/_generated
 !/runtime/.gitkeep
 /web/assets/*
 !/web/assets/.gitkeep
-
-# local environment file (contains credentials, never commit)
-/.env
