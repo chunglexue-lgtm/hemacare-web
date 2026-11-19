@@ -27,6 +27,18 @@ class UserAuth extends BaseUserAuth
         return ['auth_id'];
     }
 
+    /**
+     * 自动填充 created_at / updated_at（Unix 秒级时间戳）
+     */
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), [
+            \yii\behaviors\TimestampBehavior::class => [
+                'class' => \yii\behaviors\TimestampBehavior::class,
+            ],
+        ]);
+    }
+
     /** 按登录方式 + 标识查凭证 */
     public static function findByIdentifier(string $type, string $identifier): ?self
     {

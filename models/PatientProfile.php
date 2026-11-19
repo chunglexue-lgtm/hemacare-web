@@ -22,6 +22,18 @@ class PatientProfile extends BasePatientProfile
         return ['profile_id'];
     }
 
+    /**
+     * 自动填充 created_at / updated_at（Unix 秒级时间戳）
+     */
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), [
+            \yii\behaviors\TimestampBehavior::class => [
+                'class' => \yii\behaviors\TimestampBehavior::class,
+            ],
+        ]);
+    }
+
     /** 所属用户 */
     public function getUser()
     {

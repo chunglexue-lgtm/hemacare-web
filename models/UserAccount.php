@@ -26,6 +26,18 @@ class UserAccount extends BaseUserAccount
         return ['user_id'];
     }
 
+    /**
+     * 自动填充 created_at / updated_at（Unix 秒级时间戳）
+     */
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), [
+            \yii\behaviors\TimestampBehavior::class => [
+                'class' => \yii\behaviors\TimestampBehavior::class,
+            ],
+        ]);
+    }
+
     /** token 是否有效（存在 + 时效 + 账号状态） */
     public function validateToken(string $token): bool
     {
