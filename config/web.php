@@ -71,8 +71,8 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => \yii\gii\Module::class,
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        // 与 debug 保持一致：允许局域网访问（本机 127.0.0.1 默认含在其中之外的网段也可再加）
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.*'],
     ];
 }
 

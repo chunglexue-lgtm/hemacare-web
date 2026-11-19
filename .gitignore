@@ -40,3 +40,6 @@ tests/_support/_generated
 !/runtime/.gitkeep
 /web/assets/*
 !/web/assets/.gitkeep
+
+# local sql scripts and logs (not versioned)
+/sql/*
