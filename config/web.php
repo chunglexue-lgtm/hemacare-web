@@ -52,9 +52,19 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                // ===== 患者端小程序 API（wechat_patient 模块） =====
+                'POST wechat-patient/login' => 'wechat_patient/login/index',
+                'GET wechat-patient/profile' => 'wechat_patient/profile/index',
+                'POST wechat-patient/profile' => 'wechat_patient/profile/save',
             ],
         ],
-        
+
+    ],
+    'modules' => [
+        // 患者端小程序 API 模块
+        'wechat_patient' => [
+            'class' => \app\wechat_patient\Module::class,
+        ],
     ],
     'params' => $params,
 ];
@@ -71,8 +81,16 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => \yii\gii\Module::class,
-        // 与 debug 保持一致：允许局域网访问（本机 127.0.0.1 默认含在其中之外的网段也可再加）
+        // 与 debug 保持一致：允许本机+局域网访问
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.*'],
+        'generators' => [
+            'model' => [
+                'class' => \yii\gii\generators\model\Generator::class,
+                // Gii 生成模型的默认命名空间（→ models/base 目录）；
+                // 手写业务子类放在 app\models，继承 base 类
+                'ns' => 'app\models\base',
+            ],
+        ],
     ];
 }
 
