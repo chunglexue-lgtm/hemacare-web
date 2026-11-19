@@ -18,7 +18,7 @@ if (getenv('DB_HOST')) {
 return [
     'class' => \yii\db\Connection::class,
     'dsn' => 'mysql:unix_socket=/data/mysql/mysql.sock;dbname=hemacare',
-    'username' => 'root',
+    'username' => 'hemacare_user',
     'password' => 'xyc',
     'charset' => 'utf8mb4',
 ];
