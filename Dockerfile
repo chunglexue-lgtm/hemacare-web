@@ -4,6 +4,9 @@ ENV APACHE_DOCUMENT_ROOT=/var/www/html/web \
     YII_DEBUG=false \
     YII_ENV=prod
 
+# 统一使用北京时间（php:8.3 基础镜像默认 UTC）
+RUN echo "date.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/timezone.ini
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libicu-dev libzip-dev libonig-dev \
         libpng-dev libjpeg62-turbo-dev libfreetype6-dev \

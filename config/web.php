@@ -7,6 +7,8 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    // 应用层时间统一北京时间（formatter/日志等；PHP 进程时区由 Dockerfile 设置）
+    'timeZone' => 'Asia/Shanghai',
     'container' => [
         'singletons' => [
             \yii\mail\MailerInterface::class => [
