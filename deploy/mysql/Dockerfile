@@ -1,4 +1,4 @@
-FROM mysql:8.0
+FROM ccr.ccs.tencentyun.com/library/mysql:8.0
 
 # 字符集配置（与业务库一致）
 COPY my.cnf /etc/mysql/conf.d/
