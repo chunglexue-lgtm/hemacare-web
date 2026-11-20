@@ -55,9 +55,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 // ===== 患者端小程序 API（wechat_patient 模块） =====
-                'POST wechat-patient/login' => 'wechat_patient/login/index',
-                'GET wechat-patient/profile' => 'wechat_patient/profile/index',
-                'POST wechat-patient/profile' => 'wechat_patient/profile/save',
+                // 与小程序请求路径一致（下划线）；带 HTTP 方法校验，
+                // 防止 POST /wechat_patient/profile 被默认路由当成 actionIndex
+                'POST wechat_patient/login' => 'wechat_patient/login/index',
+                'GET wechat_patient/profile' => 'wechat_patient/profile/index',
+                'POST wechat_patient/profile' => 'wechat_patient/profile/save',
             ],
         ],
 
